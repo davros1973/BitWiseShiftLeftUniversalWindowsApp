@@ -6,6 +6,22 @@
 #include "pch.h"
 #include "MainPage.xaml.h"
 
+// *******************************************************************
+#include<string>
+// Only for: https://msdn.microsoft.com/en-us/library/ee404765.aspx
+/*
+wstring to_wstring(int Val);
+wstring to_wstring(unsigned int Val);
+wstring to_wstring(long Val);
+wstring to_wstring(unsigned long Val);
+wstring to_wstring(long long Val);
+wstring to_wstring(unsigned long long Val);
+wstring to_wstring(float Val);
+wstring to_wstring(double Val);
+wstring to_wstring(long double Val);
+*/
+// ********************************************************************
+
 
 #include <regex>
 
@@ -164,6 +180,15 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
         // i.e. less than 2^(myBufferSize-1)
         // UPDATE: just the static_cast seems to sort that out ... effectively masks it?
         unsigned long ulProcessedNumber = static_cast<unsigned long>(ucharNumberToProcess);
+
+
+
+        // ******************* testing ... with #include <string> ******************
+        // std::wstring JustTesting = std::to_wstring(ulProcessedNumber);
+        String^ JustTesting2 = ref new String(std::to_wstring(ulProcessedNumber).c_str());
+        // *************************************************************************
+
+
 
         // https://msdn.microsoft.com/en-us/library/kk8w4t5t.aspx
 
