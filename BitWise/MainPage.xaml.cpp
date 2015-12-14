@@ -129,8 +129,8 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
         errno_t tmpErr = 0;
         int tmpRadix = 10;
         tmpErr = _ultow_s(sizeof ucharNumberToProcess, tmpBuff, 2, tmpRadix);
-        xamlSizeOfUnChar->Text += ref new String(tmpBuff) + " byte(s)";
-
+        xamlSizeOfUnChar->Text += ref new String(tmpBuff) + " byte(s) and CHAR_BIT = " + CHAR_BIT;
+        
         // if anything other than binary then ulNumberToProcess will be 0
 
         unsigned char ucharNumPlaces = static_cast<unsigned char>(intGlbNumPlaces);
